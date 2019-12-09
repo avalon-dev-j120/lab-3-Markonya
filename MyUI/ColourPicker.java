@@ -6,15 +6,18 @@
 package MyUI;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import javax.swing.JColorChooser;
-import javax.swing.border.Border;
+import java.awt.datatransfer.Clipboard;
+
 
 /**
  *
  * @author mar-k
  */
 public class ColourPicker extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ColourPicker
      */
@@ -90,6 +93,11 @@ public class ColourPicker extends javax.swing.JFrame {
         jSliderGreen.setToolTipText("red");
         jSliderGreen.setValue(125);
         jSliderGreen.setValueIsAdjusting(true);
+        jSliderGreen.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderGreenStateChanged(evt);
+            }
+        });
 
         jSliderBlue.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jSliderBlue.setMajorTickSpacing(255);
@@ -101,6 +109,11 @@ public class ColourPicker extends javax.swing.JFrame {
         jSliderBlue.setToolTipText("red");
         jSliderBlue.setValue(125);
         jSliderBlue.setValueIsAdjusting(true);
+        jSliderBlue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderBlueStateChanged(evt);
+            }
+        });
 
         jSliderRed.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jSliderRed.setMajorTickSpacing(255);
@@ -128,19 +141,30 @@ public class ColourPicker extends javax.swing.JFrame {
         jLabelRed.setText("Red:");
         jLabelRed.setToolTipText("Red");
 
+        jButton1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jButton1MouseMoved(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelGreen, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelBlue, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelRed, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelGreen, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelBlue, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelRed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSliderGreen, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                     .addComponent(jSliderRed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,22 +182,23 @@ public class ColourPicker extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabelRed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSliderRed, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSliderRed, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabelRed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabelGreen, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29))
-                            .addComponent(jSliderGreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSliderGreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jSliderBlue, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabelBlue))))))
+                                .addComponent(jLabelBlue, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jSliderBlue, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)))))
         );
 
         pack();
@@ -181,11 +206,39 @@ public class ColourPicker extends javax.swing.JFrame {
 
     private void jSliderRedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderRedStateChanged
         //jLayeredPaneColor.setBackground(Color.red);
-        jButton1.setBackground(Color.red);
         jButton1.setText(String.valueOf(jSliderRed.getValue()));
-        new Color(ERROR, WIDTH, ABORT);
+        red = jSliderRed.getValue();
+        jButton1.setBackground(new Color(red, green, blue));
     }//GEN-LAST:event_jSliderRedStateChanged
 
+    private void jSliderGreenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderGreenStateChanged
+        jButton1.setText(String.valueOf(jSliderGreen.getValue()));
+        green = jSliderGreen.getValue();
+        jButton1.setBackground(new Color(red, green, blue));
+    }//GEN-LAST:event_jSliderGreenStateChanged
+
+    private void jSliderBlueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderBlueStateChanged
+        
+        jButton1.setText(String.valueOf(jSliderBlue.getValue()));
+        blue = jSliderBlue.getValue();
+        jButton1.setBackground(new Color(red, green, blue));
+        
+        
+        
+    }//GEN-LAST:event_jSliderBlueStateChanged
+
+
+    private void jButton1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseMoved
+        Integer color = jButton1.getBackground().getRGB();
+        jButton1.setToolTipText(Integer.toHexString(color));
+        String string = null;
+        StringSelection stringSelection = new StringSelection(Integer.toHexString(color));
+       Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+       clipboard.setContents(stringSelection, null);
+    }//GEN-LAST:event_jButton1MouseMoved
+
+
+    
     public ColourPicker(JColorChooser jColorChooser1) {
         this.jColorChooser1 = jColorChooser1;
     }
@@ -224,6 +277,10 @@ public class ColourPicker extends javax.swing.JFrame {
             }
         });
     }
+    
+    private int red = 125;
+    private int green = 125;
+    private int blue = 125;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

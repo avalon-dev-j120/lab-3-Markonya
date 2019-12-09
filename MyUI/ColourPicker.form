@@ -77,14 +77,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="210" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton1" pref="210" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelGreen" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelBlue" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelRed" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelGreen" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelBlue" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabelRed" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jSliderGreen" pref="277" max="32767" attributes="0"/>
                   <Component id="jSliderRed" max="32767" attributes="0"/>
@@ -106,28 +114,29 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jLabelRed" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="jSliderRed" pref="72" max="32767" attributes="0"/>
+                              <EmptySpace pref="8" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jSliderRed" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="jLabelRed" min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabelGreen" min="-2" pref="34" max="-2" attributes="0"/>
                               <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jSliderGreen" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="jSliderGreen" alignment="1" pref="64" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jSliderBlue" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="jLabelBlue" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jLabelBlue" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jSliderBlue" pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -151,6 +160,9 @@
         <Property name="value" type="int" value="125"/>
         <Property name="valueIsAdjusting" type="boolean" value="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderGreenStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSlider" name="jSliderBlue">
       <Properties>
@@ -167,6 +179,9 @@
         <Property name="value" type="int" value="125"/>
         <Property name="valueIsAdjusting" type="boolean" value="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderBlueStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSlider" name="jSliderRed">
       <Properties>
@@ -213,6 +228,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
+      <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseMoved"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
