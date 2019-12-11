@@ -22,9 +22,6 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="enabled" type="boolean" value="false"/>
     <Property name="locationByPlatform" type="boolean" value="true"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[480, 640]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[120, 120]"/>
     </Property>

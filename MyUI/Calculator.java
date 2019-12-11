@@ -29,7 +29,6 @@ public class Calculator extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -65,7 +64,6 @@ public class Calculator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setEnabled(false);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(480, 640));
         setMinimumSize(new java.awt.Dimension(120, 120));
         setSize(new java.awt.Dimension(200, 200));
 
